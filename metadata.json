@@ -1,0 +1,11 @@
+{
+  "name": "JARVIS - Shaxsiy AI Yordamchi",
+  "description": "Iron Man uslubidagi shaxsiy AI yordamchi: ovozli muloqot, kamera orqali ko'rish va kayfiyat tahlili hamda intellektual shaxmat o'yini.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

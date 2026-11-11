@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #030712;
+    color: #e2e8f0;
+    font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-hud {
+    font-family: 'Chakra Petch', 'Rajdhani', sans-serif;
+  }
+}
+
+/* Custom Stark Industries Glow & Sci-Fi HUD effects */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.6));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.9));
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 18s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 24s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.scanline-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline-effect::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.8), transparent);
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.8);
+  animation: scanline 4s linear infinite;
+  pointer-events: none;
+}
+
+/* Sci-fi HUD corners */
+.hud-corner {
+  position: relative;
+}
+.hud-corner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 10px; height: 10px;
+  border-top: 2px solid #06b6d4;
+  border-left: 2px solid #06b6d4;
+  pointer-events: none;
+}
+.hud-corner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 10px; height: 10px;
+  border-bottom: 2px solid #06b6d4;
+  border-right: 2px solid #06b6d4;
+  pointer-events: none;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(3, 7, 18, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.6);
+}
